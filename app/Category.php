@@ -9,4 +9,9 @@ class Category extends Model
    protected $fillable = [
         'name', 'photo',
     ];
+
+     public function subcategory()
+    {
+        return $this->hasmany('App\Subcategory');
+    }
 }

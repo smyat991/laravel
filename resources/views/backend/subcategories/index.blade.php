@@ -4,12 +4,12 @@
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-dashboard"></i> Categories</h1>
+        <h1><i class="fa fa-dashboard"></i> Subategories</h1>
         <p></p>
       </div>
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="#">Categories</a></li>
+        <li class="breadcrumb-item"><a href="#">Subategories</a></li>
       </ul>
     </div>
 
@@ -17,8 +17,8 @@
       <div class="col-md-12">
         <div class="tile">
           <div class="tile-body">
-            <h4 class="d-inline-block">Categories List</h4>
-            <a href="{{route('categories.create')}}" class="btn btn-success float-right">Add New</a>
+            <h4 class="d-inline-block">Subategories List</h4>
+            <a href="{{route('subcategories.create')}}" class="btn btn-success float-right">Add New</a>
 
             <div class="table-responsive mt-3">
               <table class="table table-bordered" id="sampleTable">
@@ -26,20 +26,20 @@
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Photo</th>
+                    <th>Category id</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   @php $i=1; @endphp
-                  @foreach($categories as $category)
+                  @foreach($subcategories as $subcategory)
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$category->name}}</td>
-                    <td><img src="{{asset($category->photo)}}" width="100"></td>
+                    <td>{{$subcategory->name}}</td>
+                    <td>{{$subcategory->category->name}}</td>
                     <td>
-                      <a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                      <form method="post" action="{{route('categories.destroy',$category->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+                      <a href="{{route('subcategories.edit',$subcategory->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                      <form method="post" action="{{route('subcategories.destroy',$subcategory->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
                         @csrf
                         @method('DELETE')
                         <input type="submit" name="btnsubmit" class="btn btn-danger btn-sm" value="Delete">
