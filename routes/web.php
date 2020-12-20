@@ -17,16 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', 'BackendController@dashboard')->name('dashboardpage');
 
-Route::resource('categories','CategoryController');
+//backend
+Route::middleware('role:admin')->group(function() {
 
-Route::resource('brands','BrandController');
+	Route::get('dashboard', 'BackendController@dashboard')->name('dashboardpage');
 
-Route::resource('subcategories','SubcategoryController');
+	Route::resource('categories','CategoryController');
 
-Route::resource('items','ItemController');
+	Route::resource('brands','BrandController');
 
-Auth::routes();
+	Route::resource('subcategories','SubcategoryController');
 
+	Route::resource('items','ItemController');
+});
+
+
+//Auth
+/*Auth::routes(['verify'=> true]);
+Route::get('/home', 'HomeController@index')->name('home');
+*/
+
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
