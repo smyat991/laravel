@@ -43,10 +43,10 @@ class ItemController extends Controller
          //validation
         $request->validate([
             'codeno' => 'required',
-            'name' => 'required|min:5',
+            'name' => 'required',
             'photo' => 'required|mimes:jpeg,jpg,png', 
             'price' => 'required',
-            'discount' => 'required',
+            'discount' => '',
             'description' => 'required',
             'brand_id' => 'required',
             'subcategory_id' => 'required'

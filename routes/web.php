@@ -32,11 +32,10 @@ Route::middleware('role:admin')->group(function() {
 	Route::resource('items','ItemController');
 });
 
-
 //Auth
-/*Auth::routes(['verify'=> true]);
-Route::get('/home', 'HomeController@index')->name('home');
-*/
-
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+//frontend
+Route::get('index','FrontendController@index')->name('indexpage');
+Route::get('itemdetail','FrontendController@itemdetail')->name('itemdetailpage');

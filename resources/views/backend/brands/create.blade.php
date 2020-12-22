@@ -21,7 +21,7 @@
             <a href="{{route('brands.index')}}" class="btn btn-success float-right">Back</a>
             <br>
             <form method="post" action="{{route('brands.store')}}" enctype="multipart/form-data" class="mt-3">
-              @csrf
+              @csrf 
               <div class="form-group">
                 <label for="nameInput">Name:</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="nameInput" value="{{old('name')}}" >
