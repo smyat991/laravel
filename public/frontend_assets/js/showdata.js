@@ -109,7 +109,7 @@ $(document).ready(function(){
                 html+=`<div class="col-12"><h5 class="text-center">There are no items in this cart</h5>
                         </div>
                         <div class="col-12 mt-5 ">
-                        <a href="index.php" class="btn btn-secondary mainfullbtncolor px-3" > 
+                        <a href="index" class="btn btn-secondary mainfullbtncolor px-3" > 
                         <i class="icofont-shopping-cart"></i>Continue Shopping </a></div>`
                
                 $('.shoppingcart_div').hide();
@@ -117,22 +117,6 @@ $(document).ready(function(){
                
             	}
 			}//end showdata
-
-		/*function cartnoti(){
-			var cartlist=localStorage.getItem("cart");
-			var total=0;
-			if(cartlist){
-				var cartArray=JSON.parse(cartlist);
-				cartArray.forEach( function(v,i) {
-					//console.log(v);
-					total+=v.qty;
-					// statements
-				});
-				console.log(total);
-				$(".cartNoti").html(total);
-
-			}
-		}*/
 
 		 function cartnoti(){
             //alert('ok');
@@ -220,7 +204,7 @@ $(document).ready(function(){
 			}
 		})
 
-
+/*
 		$("tfoot").on('click','.checkoutBtn',function(){
 			//alert('helo');
 			var cart=localStorage.getItem('cart');
@@ -260,7 +244,7 @@ $(document).ready(function(){
 			});
 
 		});
-		
+		*/
 
 
 	})//end 

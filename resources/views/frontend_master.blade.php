@@ -90,10 +90,10 @@
 					<i class="icofont-search"></i>
 				</div>
 
-				<a href="" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
+				<a href="{{route('shoppingcartpage')}}" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i> 
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
-					<span> 4,800 Ks </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 0 </span>
+					<span class="cartTotal"> 0 Ks </span>
 				</a>
 
 				<a href="" class="text-decoration-none d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block shoppingcartLink"> 
@@ -121,22 +121,7 @@
 						<i class="icofont-rounded-down pt-2"></i>
 			        </a>
 			        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			          	@foreach($categories as $category)
-			          	<li class="dropdown-submenu">
-			          		<a class="dropdown-item" href="javascript:void(0)">
-			          			{{$category->name}}
-			          			<i class="icofont-rounded-right float-right"></i>
-			          		</a>
-				            <ul class="dropdown-menu">
-				            	<h6 class="dropdown-header">
-				            		{{$category->name}}
-				            	</h6>
-				            	@foreach($category->subcategory as $subcategory)
-				              	<li><a class="dropdown-item" href="#">{{$subcategory->name}}</a></li>
-				              	@endforeach
-				            </ul>
-			          	</li>
-			          	@endforeach
+			          	<x-category-component></x-category-component>
 			     		<div class="dropdown-divider"></div>
 			        </ul> 
         		</div>
@@ -154,10 +139,7 @@
           			</a>
 
           			<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            			@foreach($brands as $brand)
-            			<a class="dropdown-item" href="">{{$brand->name}}</a>
-            			<div class="dropdown-divider"></div>
-            			@endforeach
+            			<x-brand-component></x-brand-component>
           			</div>
         		</div>
 			</div>
@@ -198,85 +180,6 @@
         		</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- Sub Nav (WEB) -->
-	<div id="mySidebar" class="sidebar">
-		<div class="row">
-			<div class="col-10">
-	  			<img src="../logo/logo_med_trans.png" class="img-fluid" style="width: 100px">
-			</div>
-			<div class="col-2">
-				<a href="javascript:void(0)" class="closebtn text-decoration-none">
-			  		<i class="icofont-close-line"></i>
-			  	</a>
-			</div>
-		</div>
-		
-		<div class="mt-3">
-			<p class="text-muted ml-4"> Shop By </p>
-			<hr>
-		  	<a data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category">
-		   		Category
-		   		<i class="icofont-rounded-down float-right mr-3"></i>
-
-		  	</a>
-
-			<div class="collapse sidebardropdown_container_category mt-3" id="category">
-			    <a href="" class="py-2"> Category One </a>
-			    <a href="" class="py-2"> Category Two </a>
-			    <a href="" class="py-2"> Category Three </a>
-			    <a href="" class="py-2"> Category Four </a>
-			    <a href="" class="py-2"> Category Five </a>
-			</div>
-
-			<hr>
-
-		  	<a href="#"> Poromotion </a>
-			<hr>
-
-		  	<a data-toggle="collapse" href="#brand" role="button" aria-expanded="false" aria-controls="brand">
-		   		Merchants
-		   		<i class="icofont-rounded-down float-right mr-3"></i>
-
-		  	</a>
-
-			<div class="collapse sidebardropdown_container_category mt-3" id="brand">
-			    <a href="" class="py-2"> Brand One </a>
-			    <a href="" class="py-2"> Brand Two </a>
-			    <a href="" class="py-2"> Brand Three </a>
-			    <a href="" class="py-2"> Brand Four </a>
-			    <a href="" class="py-2"> Brand Five </a>
-			</div>
-			<hr>
-
-			<a data-toggle="collapse" href="#service" role="button" aria-expanded="false" aria-controls="service">
-		   		Service
-		   		<i class="icofont-rounded-down float-right mr-3"></i>
-		  	</a>
-
-			<div class="collapse sidebardropdown_container_category mt-3" id="service">
-			    <a href="" class="py-2"> Help Center </a>
-			    <a href="" class="py-2"> Order </a>
-			    <a href="" class="py-2"> Shipping & Delivery </a>
-			    <a href="" class="py-2"> Payment </a>
-			    <a href="" class="py-2"> Returns & Refunds </a>
-			</div>
-			<hr>
-
-			<a href="#"> Login | Signup</a>
-			<hr>
-
-			<a href="#"> Cart [ <span class="cartNoti"> 1 </span> ]  </a>
-			<hr>
-
-			<img src="image/download.png" class="img-fluid ml-2 text-center" style="width: 150px">
-			<hr>
-
-			<p class="text-white ml-3"> Copyright &copy; <img src="../logo/logo_wh_transparent.png" style="width: 20px; height: 20px"> 2019  </p>
-
-		</div>
-	  	
 	</div>
 
 	 
@@ -369,10 +272,8 @@
 		</div>
 	</div>
 
-
 	<div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>
 	
-
   	<footer class="py-3 mt-5">
     	<div class="container">
     		<div class="text-center pb-3">
@@ -394,6 +295,7 @@
 
     <!-- Owl Carousel -->
     <script type="text/javascript" src="{{asset('frontend_assets/js/owl.carousel.js')}}"></script>
+    <script type="text/javascript" src="{{asset('frontend_assets/js/showdata.js')}}"></script>
 
 </body>
 </html>

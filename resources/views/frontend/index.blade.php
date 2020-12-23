@@ -54,7 +54,7 @@
 		            	@if($item->discount!='')
 		                <div class="item">
 		                    <div class="pad15">
-		                    	<a href="{{route('itemdetailpage',$items->id)}}">
+		                    	<a href="{{route('itemdetailpage',$item->id)}}">
 		                    		<img src="{{$item->photo}}" class="img-fluid">
 		                    	</a>
 		                    	
@@ -75,7 +75,8 @@
 									</ul>
 								</div>
 
-								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								<!-- <a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a> -->
+								<button class="btn-outline-danger mybtn" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}" data-discount="{{$item->discount}}">Add to Cart</button>
 
 		                    </div>
 		                </div>
@@ -101,7 +102,9 @@
 		            	@foreach($items as $item)
 		            		<div class="item">
 		                    <div class="pad15">
-		                    	<img src="{{$item->photo}}" class="img-fluid">
+		                    	<a href="{{route('itemdetailpage',$item->id)}}">
+		                    		<img src="{{$item->photo}}" class="img-fluid">
+		                    	</a>
 		                        <p class="text-truncate">{{$item->name}}</p>
 		                        <p class="item-price">
 		                        	@if($item->discount!='')
@@ -122,7 +125,7 @@
 									</ul>
 								</div>
 
-								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								<button class="btn-outline-danger mybtn" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}" data-discount="{{$item->discount}}">Add to Cart</button>
 
 		                    </div>
 		                	</div>
@@ -148,7 +151,9 @@
 		            	@if($flash_item->subcategory_id==13)
 		                <div class="item">
 		                    <div class="pad15">
-		                    	<a href=""><img src="{{$flash_item->photo}}" class="img-fluid detail"></a>
+		                    	<a href="{{route('itemdetailpage',$item->id)}}">
+		                    		<img src="{{$flash_item->photo}}" class="img-fluid">
+		                    	</a>
 		                        <p class="text-truncate">{{$flash_item->name}}</p>
 
 		                        <p class="item-price">
@@ -169,7 +174,9 @@
 										<li class="list-inline-item"><i class='bx bxs-star-half' ></i></li>
 									</ul>
 								</div>
+
 								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								
 								
 
 		                    </div>

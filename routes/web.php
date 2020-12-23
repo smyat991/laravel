@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,6 +35,10 @@ Route::middleware('role:admin')->group(function() {
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //frontend
 Route::get('index','FrontendController@index')->name('indexpage');
-Route::get('itemdetail','FrontendController@itemdetail')->name('itemdetailpage');
+Route::get('filtercategory/{id}','FrontendController@categoryfilter')->name('categoryfilterpage');
+Route::get('filterbrand/{id}','FrontendController@brandfilter')->name('brandfilterpage');
+Route::get('itemdetail/{id}','FrontendController@itemdetail')->name('itemdetailpage');
+Route::get('shoppingcart','FrontendController@shoppingcart')->name('shoppingcartpage');
